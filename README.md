@@ -6,6 +6,7 @@
   - 깃 생성: `git init`
   - 이름/이메일 등록: `git config user.name "이름"`, `git config user.email "이메일"`
   - 상태 보기: `git status`
+  - 변경사항 조회: `git diff`
   - 변경 이력 보기: `git log`, `git log --graph`, `gitk`
 
 * 4개의 장소가 존재함
@@ -41,11 +42,17 @@ Directory    Area (index)  Repository      Repository
 > 원격 저장소 복제하기
 `$ git clone <저장소 이름> <저장할 디렉토리 이름>`
 
+> 원격 저장소 메타정보(커밋, 브랜치, 태그) 다운로드 (로컬 저장소는 변경되지 않음)
+`$ git fetch <저장소 이름>`
+
 > push하기 (원격 저장소 복제 이후)
 `$ git push <생략>`
 
 > pull하기 (업로드)
 `$ git pull <저장소 이름, 생략시 origin> <브랜치 이름, 생략시 master>`
+
+> tag 붙이기
+`$ git tag <TAG_NAME>` 또는 `$ git tag -a <TAG_NAME> -m "코멘트"` (태그 정보는 `$ git show {TAG_NAME}`으로 조회 가능)
 
 
 ## 브랜치 관리
