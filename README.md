@@ -83,3 +83,70 @@ Directory    Area (index)  Repository      Repository
   o
   |
 ```
+
+# Repo/Manifest
+
+## 용어 및 개념
+
+* 용어
+  - Repo: 리포지토리 관리 도구로 다수의 Git 저장소를 관리한다. repo 커맨드는 Python 스크립트로 되어 있으며 단일 커맨드로 여러 개의 저장소를 다운로드할 수도 있다.
+  - Manifest: Git 저장소 정보가 명시되어 있는 xml 문서.
+
+* 등장 배경
+  - SW 규모와 복잡성 증가, 모듈화 필요성 증대, 다수의 Git 효율적 관리 필요성에 따라 등장하게 되었다.
+  - 예를 들면, android L OS의 경우 500개 이상의 Git을 갖고 있다.
+
+## repo 명령어
+
+* repo init: git project list가 명시된 manifest 설정
+  - manifest 문서를 관리하는 manifest Git 저장소를 다운로드하고 초기화 작업을 한다.
+  - `repo init -u ssh://{계정}@{gerrit inifo}/vw/linux/manifest -b BRANCH [-m MANIFEST.xml] [-g GROUP]`
+
+* repo sync: 설정된 manifest에 명시된 git project를 다운로드
+  - repo init 이후에 설정된 manifest 정보를 기반으로 Git 저장소를 로컬에 다운로드한다.
+  - `repo sync -c -q --no-tags -j4 [{GIT_PJT1 GIT_PJT2 ... GIT_PJTN}]`
+  - `-c`: 현재 지정된 branch 정보만 다운로드(fetch)한다.
+  - `-q`: 불필요한 로그는 숨긴다.
+  - `-j`: Git 저장소 다운로드시 사용할 쓰레드 개수 지정
+  - `--no-tags`: Git 저장소의 tag 정보는 다운로드(fetch)하지 않는다.
+
+* repo start: 모든 git project에 topic branch 생성
+  - 현재 원격 브랜치 정보와 동일한 상태로 소스를 변경하고 로컬 브랜치를 생성한다.
+  - `repo start BRANCH --all`
+
+* repo status: 모든 git project의 git status 확인
+
+* repo upload: commit을 gerrit에 업로드
+  - 로컬에 생성한 commit을 Gerrit에 업로드
+  - `repo upload .`
+
+* repo info: git project list 정보 출력
+
+* repo forall: 모든 git project에 대해 git 명령어 실행
+  - 다운로드한 Git project에 대해 특정 명령어를 수행할 때 사용한다.
+  - `repo forall -c COMMAND -j4`: 모든 Git 저장소에 대해 COMMAND 실행
+  - `repo forall GIT_PJT1 GIT_PJT2 ... GIT_PJTN -c COMMAND -j4`: GIT_PROJECT1~N에 해당하는 Git 저장소에 대해 COMMAND 실행
+  - `-c`: 뒤의 명령어를 실행한다는 뜻.
+  - `-r`: 정규 표현식을 이용하여 특정 Git 저장소에 대해 명령어를 수행함
+  - `-i`: -r과 달리 정규 표현식을 이용하여 특정 Git 저장소를 제외하고 명령어를 수행함
+  - `-g`: manifest의 특정 group에 해당하는 Git 저장소에 대해 명령어를 수행함
+  - `-p`: 결과에 GIt path를 함께 출력함
+  - `-j`: repo forall 명령어를 실행할 쓰레드 개수를 지정함
+
+* repo list: 모든 git project에 대한 name, path 속성 출력
+  - `-n`: Git 저장소 name만 출력
+  - `-p`: Git 저장소 path만 출력
+  - `-f`: Git 저장소 full path 출력
+  - `-g`: manifest의 특정 group에 해당하는 Git repository 리스트 출력
+  - `-r`: 정규표현식에 해당하는 Git 저장소 리스트 출력
+
+* repo manifest: 현재 git project 상태로 manifest 파일 생성
+  - 특정 소스 상태를 기록해야 하는 경우, 이 명령어를 실행하여 manifest를 생성함 (예: SW Event 의뢰 시점, OEM 전달 버전, Daily Build 완료 시점 등)
+  - `repo manifest -r -o MANIFEST_NAME.xml`
+
+
+# Gerrit
+
+## 용어 및 개념
+
+* Gerrit은 다양한 코드 리뷰 시스템 중 하나이다.
