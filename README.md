@@ -67,18 +67,18 @@ Directory    Area (index)  Repository      Repository
   o : master (origin, main라고도 함)
   |
   |       1. `git branch <branchName>` : 새로운 브랜치 생성 (단, 브랜치는 다음 커맨드로 삭제할 수 있음: `git branch -d <branchName>`)
-  |-------------------->|
-  |                     |
-  |                     v
-  o (변경 취소)          o : 2. `git checkout <branchName>` : 다른 브랜치로 commit 지점 이동 (다른 commit 지점으로 이동할 수도 있음 - HEAD 이동)
-  ^ (이력 삭제)          |
-  | `git reset HEAD`    v
-  o                     o : 3. `git commit`
-  | `git revert HEAD`   |
-  v (변경 취소)          |
-  o (이력 남김)          |
-  |                     |
-  o<--------------------|
+  |----------------------->|
+  |                        |
+  |                        v
+  o (변경 취소)            o : 2. `git checkout <branchName>` : 다른 브랜치로 commit 지점 이동 (다른 commit 지점으로 이동할 수도 있음 - HEAD 이동)
+  ^ (이력 삭제)            |
+  | `git reset commit_n`   v
+  o                        o : 3. `git commit`
+  | `git revert commit_n`  |
+  v (변경 취소)            |
+  o (이력 남김)            |
+  |                        |
+  o<-----------------------|
   |       4. `git checkout master; git merge <branchName>` : 새 브랜치를 master에 합침
   o
   |
