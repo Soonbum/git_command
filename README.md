@@ -20,34 +20,6 @@
   - commit 커맨드로 저장소에 현재 상태를 확정한다. (`git commit -m "commit message"`)
   - push/pull 커맨드를 이용해 저장소 간 업로드/다운로드가 가능하다.
 
-* 깃 예외 처리
-  - 최상위 디렉토리에 .gitignore 파일을 넣을 것
-  - .gitignore 파일 안에 이력에 포함시키지 않을 파일을 넣는다. (빌드 결과물, 고용량 파일, 보안이 필요한 파일 등)
-  ```
-  # 모든 .class 파일 무시함
-  *.class
-  
-  # "*.class" 파일에서 lib.class는 예외적으로 이력에 포함시킴
-  !lib.class
-  
-  # 'temp-' 접두사를 가진 모든 json 파일을 무시함
-  temp-*.json
-  
-  # 현재 디렉토리에 있는 build.log 파일만 무시함 (서브디렉토리에 있는 파일은 아님)
-  /build.log
-  
-  # 폴더를 지정할 때는 끝에 슬래시 기호를 넣을 것
-  # temp 디렉토리 내 모든 파일을 무시함
-  temp/
-  
-  # doc/notes.txt 파일은 무시하지만, doc/server/arch.txt 파일은 허용함
-  doc/*.txt
-
-  # doc/ 디렉토리와 그것의 서브디렉토리 안에 있는 모든 .pdf 파일을 무시함
-  # /**는 0개 이상의 디렉토리를 의미함
-  doc/**/*.pdf
-  ```
-
 ```
 Working      Staging       Local           Remote
 Directory    Area (index)  Repository      Repository
@@ -82,6 +54,33 @@ Directory    Area (index)  Repository      Repository
 > tag 붙이기
 `$ git tag <TAG_NAME>` 또는 `$ git tag -a <TAG_NAME> -m "코멘트"` (태그 정보는 `$ git show {TAG_NAME}`으로 조회 가능)
 
+## 깃 예외 처리
+  - 최상위 디렉토리에 .gitignore 파일을 넣을 것
+  - .gitignore 파일 안에 이력에 포함시키지 않을 파일을 넣는다. (빌드 결과물, 고용량 파일, 보안이 필요한 파일 등)
+  ```
+  # 모든 .class 파일 무시함
+  *.class
+  
+  # "*.class" 파일에서 lib.class는 예외적으로 이력에 포함시킴
+  !lib.class
+  
+  # 'temp-' 접두사를 가진 모든 json 파일을 무시함
+  temp-*.json
+  
+  # 현재 디렉토리에 있는 build.log 파일만 무시함 (서브디렉토리에 있는 파일은 아님)
+  /build.log
+  
+  # 폴더를 지정할 때는 끝에 슬래시 기호를 넣을 것
+  # temp 디렉토리 내 모든 파일을 무시함
+  temp/
+  
+  # doc/notes.txt 파일은 무시하지만, doc/server/arch.txt 파일은 허용함
+  doc/*.txt
+
+  # doc/ 디렉토리와 그것의 서브디렉토리 안에 있는 모든 .pdf 파일을 무시함
+  # /**는 0개 이상의 디렉토리를 의미함
+  doc/**/*.pdf
+  ```
 
 ## 브랜치 관리
 
