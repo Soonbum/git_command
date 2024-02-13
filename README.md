@@ -37,7 +37,7 @@ Directory    Area (index)  Repository                Repository
 |     add      |   commit     |           push          |
 |              |              |                         |
 |<-------------|<-------------|<------------------------|
-|      rm      |    revert    |           pull          |
+|   restore    |    revert    |           pull          |
 |              |   (reset)    |                         |
 |              |              |                         |
 ```
