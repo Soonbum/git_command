@@ -24,7 +24,7 @@
 
 * 장소 간 이동하기
   - add/reset 커맨드로 변경된 파일을 Staging Area에 올리거나 취소할 수 있다. (`git add .` 또는 `git add <filename>`)
-  - commit 커맨드로 저장소에 현재 상태를 확정한다. (`git commit -m "commit message"`)
+  - commit 커맨드로 저장소에 현재 상태를 확정한다. (`git commit -m "commit message 1st line" -m "commit message 2nd line" ...`)
   - push/pull 커맨드를 이용해 저장소 간 업로드/다운로드가 가능하다.
 
 ```
