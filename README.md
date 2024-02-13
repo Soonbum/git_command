@@ -4,6 +4,7 @@
 
 * [Git](https://git-scm.com/): 윈도우에서도 리눅스 환경처럼 git 명령어를 사용할 수 있는 git bash를 제공함
 * [SourceTree](https://www.sourcetreeapp.com/): git 트리를 GUI로 볼 수 있게 해줌
+* 리눅스의 경우 다음 명령어로 설치할 수 있음: `sudo apt install git-all`
 
 ## 용어 및 개념
 
@@ -29,35 +30,38 @@
   - push/pull 커맨드를 이용해 저장소 간 업로드/다운로드가 가능하다.
 
 ```
-Working      Staging       Local           Remote
-Directory    Area (index)  Repository      Repository
-|              |              |               |
-|------------->|------------->|-------------->|
-|     add      |   commit     |      push     |
-|              |              |               |
-|<-------------|<-------------|<--------------|
-|      rm      |    revert    |      pull     |
-|              |   (reset)    |               |
-|              |              |               |
+Working      Staging       Local                     Remote
+Directory    Area (index)  Repository                Repository
+|              |              |                         |
+|------------->|------------->|------------------------>|
+|     add      |   commit     |           push          |
+|              |              |                         |
+|<-------------|<-------------|<------------------------|
+|      rm      |    revert    |           pull          |
+|              |   (reset)    |                         |
+|              |              |                         |
 ```
-
-> 원격 저장소에 로컬 저장소 이력 push하기
-`$ git remote add <저장소 이름, 생략하면 origin> <원격 저장소 URL>`
-
-> push하기 (다운로드)
-`$ git push <저장소 이름> <브랜치 이름, master 등>`
 
 > 원격 저장소 복제하기
 `$ git clone <저장소 이름> <저장할 디렉토리 이름>`
 
-> 원격 저장소 메타정보(커밋, 브랜치, 태그) 다운로드 (로컬 저장소는 변경되지 않음)
+> 원격 저장소 연결 해제하기
+`$ git remote remove <저장소 이름>`
+
+> 원격 저장소에 로컬 저장소 이력 push하기 (이후 `git remote -v`로 원격 저장소 주소를 확인할 수 있음)
+`$ git remote add <저장소 이름> <원격 저장소 URL>`
+
+> push하기 (업로드): 단, 로컬 저장소가 원격 저장소의 최신 내역과 같아야 가능함
+`$ git push <저장소 이름> <브랜치 이름>` (한 번 하면 다음에는 `git push`만 해도 저장소 이름, 브랜치 이름을 재활용함)
+
+> pull하기 (다운로드)
+`$ git pull <저장소 이름> <브랜치 이름>` (한 번 하면 다음에는 `git push`만 해도 저장소 이름, 브랜치 이름을 재활용함)
+
+> 원격 저장소 브랜치 삭제
+`$ git push <저장소 이름> --delete <브랜치 이름>`
+
+> 원격 저장소 변경사항(커밋, 브랜치, 태그) 확인하기 (로컬 저장소는 변경되지 않음)
 `$ git fetch <저장소 이름>`
-
-> push하기 (원격 저장소 복제 이후)
-`$ git push <생략>`
-
-> pull하기 (업로드)
-`$ git pull <저장소 이름, 생략시 origin> <브랜치 이름, 생략시 master>`
 
 > tag 붙이기
 `$ git tag <TAG_NAME>` 또는 `$ git tag -a <TAG_NAME> -m "코멘트"` (태그 정보는 `$ git show {TAG_NAME}`으로 조회 가능)
@@ -101,7 +105,10 @@ Directory    Area (index)  Repository      Repository
 ```
   o : master (origin, main라고도 함)
   |
-  |       1. `git branch <branchName>` : 새로운 브랜치 생성 (단, 브랜치는 다음 커맨드로 삭제할 수 있음: `git branch -d <branchName>`, 브랜치 이름을 바꿀 경우: `git branch -m <oldBranchName> <newBranchName>`)
+  |       1. `git branch <branchName>` : 새로운 브랜치 생성
+  |          `git branch --all` : 로컬/원격 저장소의 브랜치를 확인할 수 있음
+  |          (단, 브랜치는 다음 커맨드로 삭제할 수 있음: `git branch -d <branchName>`)
+  |          (브랜치 이름을 바꿀 경우: `git branch -m <oldBranchName> <newBranchName>`)
   |----------------------->|
   |                        |
   |                        v
