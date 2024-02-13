@@ -42,29 +42,29 @@ Directory    Area (index)  Repository                Repository
 |              |              |                         |
 ```
 
-> 원격 저장소 복제하기
-`$ git clone <저장소 이름> <저장할 디렉토리 이름>`
+* 원격 저장소 복제하기
+  - `$ git clone <저장소 이름> <저장할 디렉토리 이름>`
 
-> 원격 저장소 연결 해제하기
-`$ git remote remove <저장소 이름>`
+* 원격 저장소 연결 해제하기
+  - `$ git remote remove <저장소 이름>`
 
-> 원격 저장소에 로컬 저장소 이력 push하기 (이후 `git remote -v`로 원격 저장소 주소를 확인할 수 있음)
-`$ git remote add <저장소 이름> <원격 저장소 URL>`
+* 원격 저장소에 로컬 저장소 이력 push하기 (이후 `git remote -v`로 원격 저장소 주소를 확인할 수 있음)
+  - `$ git remote add <저장소 이름> <원격 저장소 URL>`
 
-> push하기 (업로드): 단, 로컬 저장소가 원격 저장소의 최신 내역과 같아야 가능함
-`$ git push <저장소 이름> <브랜치 이름>` (한 번 하면 다음에는 `git push`만 해도 저장소 이름, 브랜치 이름을 재활용함)
+* push하기 (업로드): 단, 로컬 저장소가 원격 저장소의 최신 내역과 같아야 가능함
+  - `$ git push <저장소 이름> <브랜치 이름>` (한 번 하면 다음에는 `git push`만 해도 저장소 이름, 브랜치 이름을 재활용함)
 
-> pull하기 (다운로드)
-`$ git pull <저장소 이름> <브랜치 이름>` (한 번 하면 다음에는 `git push`만 해도 저장소 이름, 브랜치 이름을 재활용함)
+* pull하기 (다운로드)
+  - `$ git pull <저장소 이름> <브랜치 이름>` (한 번 하면 다음에는 `git push`만 해도 저장소 이름, 브랜치 이름을 재활용함)
 
-> 원격 저장소 브랜치 삭제
-`$ git push <저장소 이름> --delete <브랜치 이름>`
+* 원격 저장소 브랜치 삭제
+  - `$ git push <저장소 이름> --delete <브랜치 이름>`
 
-> 원격 저장소 변경사항(커밋, 브랜치, 태그) 확인하기 (로컬 저장소는 변경되지 않음)
-`$ git fetch <저장소 이름>` (`git pull`과 달리 merge/rebase 하지 않음)
+* 원격 저장소 변경사항(커밋, 브랜치, 태그) 확인하기 (로컬 저장소는 변경되지 않음)
+  - `$ git fetch <저장소 이름>` (`git pull`과 달리 merge/rebase 하지 않음)
 
-> tag 붙이기
-`$ git tag <TAG_NAME> <HASH>` 또는 `$ git tag -a <TAG_NAME> <HASH> -m "코멘트"` (태그 정보는 `$ git show {TAG_NAME}`으로 조회 가능)
+* tag 붙이기
+  - `$ git tag <TAG_NAME> <HASH>` 또는 `$ git tag -a <TAG_NAME> <HASH> -m "코멘트"` (태그 정보는 `$ git show {TAG_NAME}`으로 조회 가능)
 
 ## 깃 예외 처리
   - 최상위 디렉토리에 .gitignore 파일을 넣을 것
