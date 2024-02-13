@@ -23,8 +23,9 @@
   - Remote Repository: 위의 3개와 달리 원격지에 있는 저장소.
 
 * 장소 간 이동하기
-  - add/reset 커맨드로 변경된 파일을 Staging Area에 올리거나 취소할 수 있다. (`git add .` 또는 `git add <filename>`)
+  - add/rm 커맨드로 변경된 파일을 Staging Area에 올리거나 취소할 수 있다. (`git add .` 또는 `git add <filename>`)
   - commit 커맨드로 저장소에 현재 상태를 확정한다. (`git commit -m "commit message 1st line" -m "commit message 2nd line" ...`)
+  - revert 커맨드는 취소 이력이 남고, reset 커맨드는 취소 이력이 남지 않는다. (`git revert HASH`)
   - push/pull 커맨드를 이용해 저장소 간 업로드/다운로드가 가능하다.
 
 ```
@@ -35,8 +36,8 @@ Directory    Area (index)  Repository      Repository
 |     add      |   commit     |      push     |
 |              |              |               |
 |<-------------|<-------------|<--------------|
-|      rm      |    reset     |      pull     |
-|              |              |               |
+|      rm      |    revert    |      pull     |
+|              |   (reset)    |               |
 |              |              |               |
 ```
 
@@ -106,9 +107,9 @@ Directory    Area (index)  Repository      Repository
   |                        v
   o (변경 취소)            o : 2. `git checkout <branchName>` : 다른 브랜치로 commit 지점 이동 (다른 commit 지점으로 이동할 수도 있음 - HEAD 이동)
   ^ (이력 삭제)            |
-  | `git reset commit_n`   v
+  | `git reset HASH`       v
   o                        o : 3. `git commit`
-  | `git revert commit_n`  |
+  | `git revert HASH`      |
   v (변경 취소)            |
   o (이력 남김)            |
   |                        |
