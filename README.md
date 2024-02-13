@@ -14,7 +14,7 @@
   - 깃 생성: `git init`
   - 상태 보기: `git status`
   - 변경사항 조회: `git diff`
-  - 변경 이력 보기: `git log`, `git log --graph`, `gitk`
+  - 변경 이력 보기: `git log`, `git log --graph`, `git log --all --decorate --oneline --graph`, `gitk`
 
 * 4개의 장소가 존재함
   - Working Directory: Unstaged 상태의 수정된 파일들이 들어 있음. git status로 상태 확인 가능.
@@ -101,7 +101,7 @@ Directory    Area (index)  Repository      Repository
 ```
   o : master (origin, main라고도 함)
   |
-  |       1. `git branch <branchName>` : 새로운 브랜치 생성 (단, 브랜치는 다음 커맨드로 삭제할 수 있음: `git branch -d <branchName>`)
+  |       1. `git branch <branchName>` : 새로운 브랜치 생성 (단, 브랜치는 다음 커맨드로 삭제할 수 있음: `git branch -d <branchName>`, 브랜치 이름을 바꿀 경우: `git branch -m <oldBranchName> <newBranchName>`)
   |----------------------->|
   |                        |
   |                        v
