@@ -126,6 +126,19 @@ Directory    Area (index)  Repository                Repository
   |
 ```
 
+## 참고 자료
+
+[Pro Git Book 한글판 1판](https://dogfeet.github.io/articles/2012/progit.html)
+[Pro Git Book 한글판 2판](https://git-scm.com/book/ko/v2)
+[생활코딩 - Git1](https://www.youtube.com/playlist?list=PLuHgQVnccGMCNJESahrVV-uYGMNYK_vMf)
+[생활코딩 - CLI 버전관리편](https://www.youtube.com/playlist?list=PLuHgQVnccGMATJK16UJ9Fjay0ozrSZKiI)
+[생활코딩 - CLI 브랜치 & 충돌](https://www.youtube.com/playlist?list=PLuHgQVnccGMDU5eAzOz2dZ9KXJF6dkNg3)
+[생활코딩 - CLI 백업](https://www.youtube.com/playlist?list=PLuHgQVnccGMBJr3eVXGvYHDvGNcogEy7v)
+[생활코딩 - CLI 협업](https://www.youtube.com/playlist?list=PLuHgQVnccGMA4LgLoH07e7uEbRbi92Dd2)
+[생활코딩 - cherry-pick & rebase](https://www.youtube.com/playlist?list=PLuHgQVnccGMAb_nOiego7BqfKTRcXsUrB)
+[생활코딩 - Pull request](https://www.youtube.com/playlist?list=PLuHgQVnccGMBXv1OKe3Hn3Jq6F735-uWm)
+[생활코딩 - Visual Studio Code로 다루는 Git](https://www.youtube.com/playlist?list=PLuHgQVnccGMAQvSVKdXFiOo51HUD8iQQm)
+
 # Repo/Manifest
 
 ## 용어 및 개념
