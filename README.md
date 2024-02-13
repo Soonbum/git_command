@@ -61,10 +61,10 @@ Directory    Area (index)  Repository                Repository
 `$ git push <저장소 이름> --delete <브랜치 이름>`
 
 > 원격 저장소 변경사항(커밋, 브랜치, 태그) 확인하기 (로컬 저장소는 변경되지 않음)
-`$ git fetch <저장소 이름>`
+`$ git fetch <저장소 이름>` (`git pull`과 달리 merge/rebase 하지 않음)
 
 > tag 붙이기
-`$ git tag <TAG_NAME>` 또는 `$ git tag -a <TAG_NAME> -m "코멘트"` (태그 정보는 `$ git show {TAG_NAME}`으로 조회 가능)
+`$ git tag <TAG_NAME> <HASH>` 또는 `$ git tag -a <TAG_NAME> <HASH> -m "코멘트"` (태그 정보는 `$ git show {TAG_NAME}`으로 조회 가능)
 
 ## 깃 예외 처리
   - 최상위 디렉토리에 .gitignore 파일을 넣을 것
@@ -100,7 +100,7 @@ Directory    Area (index)  Repository                Repository
   - master 브랜치는 가장 최초로 생기는 브랜치로 origin, main이라고 불리기도 함
   - commit 할 때마다 다음 지점으로 브랜치가 자란다.
   - 사용자가 브랜치를 만들거나 삭제할 수 있다.
-  - HEAD 포인터를 이용하여 commit, push, pull이 발생하는 지점으로 선택, 이동할 수 있다.
+  - HEAD 포인터를 이용하여 commit, push, pull이 발생하는 지점으로 선택, 이동할 수 있다. (HEAD 포인터 3단계 뒤로: `git checkout HEAD^^^` 또는 `git checkout HEAD~3`)
  
 ```
   o : master (origin, main라고도 함)
