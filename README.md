@@ -1,10 +1,17 @@
 # Git
 
+## 프로그램 설치 링크
+
+* [Git](https://git-scm.com/): 윈도우에서도 리눅스 환경처럼 git 명령어를 사용할 수 있는 git bash를 제공함
+* [SourceTree](https://www.sourcetreeapp.com/): git 트리를 GUI로 볼 수 있게 해줌
+
 ## 용어 및 개념
 
 * 초기화/기타 커맨드
+  - 이름/이메일 등록: `git config --global user.name "이름"`, `git config --global user.email "이메일"`
+  - CRLF 속성 설정: `git config --global core.autocrlf true`
+  - 기본 브랜치 이름 변경하기: `git config --global init.defaultBranch main`
   - 깃 생성: `git init`
-  - 이름/이메일 등록: `git config user.name "이름"`, `git config user.email "이메일"`
   - 상태 보기: `git status`
   - 변경사항 조회: `git diff`
   - 변경 이력 보기: `git log`, `git log --graph`, `gitk`
